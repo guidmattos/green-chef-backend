@@ -25,4 +25,8 @@ class RecipeController extends Controller
         $resposeJson = ['recipes' => $recipesArray];
         return Response::json($resposeJson, 200);
     }
+
+    public function recipeDetails($id){
+        return Recipe::where('id', $id)->first();
+    }
 }

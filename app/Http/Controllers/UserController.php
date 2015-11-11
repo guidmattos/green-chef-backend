@@ -20,7 +20,7 @@ class UserController extends Controller
      * @return Response
      */
 
-    public function listExcludeIngredient() 
+    public function listExcludedIngredients() 
     {
         return Response::json('OK', 200);
     }

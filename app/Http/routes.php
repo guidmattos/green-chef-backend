@@ -24,9 +24,7 @@ Route::group(['prefix' => 'api/v1'], function() {
 
     // Recipe
     Route::get('recipes/list', 'RecipeController@listRecipes');
-    Route::get('recipes/{id}', function($id){
-    	return Recipe::where('id', $id)->first();
-	});
+    Route::get('recipes/{id}', 'RecipeController@recipeDetails');
 
     // ExcludedIngredient
     Route::get('users/ingredients/list', 'UserController@listExcludedIngredients');

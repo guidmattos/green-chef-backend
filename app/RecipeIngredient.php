@@ -3,8 +3,9 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Ingredient;
 
-class Ingredient extends Model
+class RecipeIngredient extends Model
 {
 
     /**
@@ -12,14 +13,14 @@ class Ingredient extends Model
      *
      * @var string
      */
-    protected $table = 'ingredients';
+    protected $table = 'recipe_ingredients';
 
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
-    protected $fillable = ['name'];
+    protected $fillable = ['id_recipe', 'id_ingredient', 'quantity'];
 
     /**
      * The attributes excluded from the model's JSON form.
@@ -27,9 +28,5 @@ class Ingredient extends Model
      * @var array
      */
     protected $hidden = [];
-
-    public function recipes() {
-        return $this->belongsToMany('App\Recipe');
-    }
 
 }
