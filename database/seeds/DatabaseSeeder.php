@@ -15,12 +15,7 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         Model::unguard();
-        //App\Entry::truncate();
-        //App\Patient::truncate();
-        $this->call('UsersTableSeeder');
-        $this->call('DiariesTableSeeder');
-        $this->call('EntriesTableSeeder');
-
+        App\User::truncate();
        // Model::reguard();
     }
 }

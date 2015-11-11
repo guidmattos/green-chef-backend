@@ -50,9 +50,4 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
         return $jwt;
     }
 
-    public function diaries()
-    {
-        return $this->hasMany('App\Diary');
-    }
-
 }

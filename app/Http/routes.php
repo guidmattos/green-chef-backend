@@ -11,14 +11,27 @@
 |
 */
 
-// Teste fofo da aula de apresentacao do Chaim!
+use App\Recipe;
 
 Route::get('/', function () {
     return view('welcome');
 });
 
 Route::group(['prefix' => 'api/v1'], function() {
-    Route::post('auth/signin', 'Auth\AuthController@signIn');
-});
 
-Route::post('api/v1/push', 'UserController@push');
+	// Auth
+    Route::post('auth/signin', 'Auth\AuthController@signIn');
+
+    // Recipe
+    Route::get('recipes/list', 'RecipeController@listRecipes');
+    Route::get('recipes/{id}', function($id){
+    	return Recipe::where('id', $id)->first();
+	});
+
+    // ExcludedIngredient
+    Route::get('users/ingredients/list', 'UserController@listExcludedIngredients');
+	Route::post('users/ingredients/create', 'UserController@excludeIngredient');
+	
+	// Order
+	Route::post('orders/create', 'OrderController@create');
+});

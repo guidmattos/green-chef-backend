@@ -12,13 +12,23 @@ use App\Http\Controllers\Controller;
 use Response;
 use Input;
 
-class PatientsController extends Controller
+class UserController extends Controller
 {
     /**
      * Send a push notificatino to patient.
      *
      * @return Response
      */
+
+    public function listExcludeIngredient() 
+    {
+        return Response::json('OK', 200);
+    }
+
+    public function excludeIngredient() 
+    {
+        return Response::json('OK', 200);
+    }
 
 
     public function push()
